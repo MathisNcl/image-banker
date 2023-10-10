@@ -1,0 +1,19 @@
+__pycache__
+__pycache__/*
+
+.vscode
+.vscode/*
+.pytest_cache
+.pytest_cache/*
+
+.ipynb_checkpoints/
+
+# Setuptools
+*.egg-info/
+
+.coverage
+.coverage*
+.env
+
+# model
+/model

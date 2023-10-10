@@ -1,0 +1,21 @@
+#!/bin/bash
+
+file_url="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt"
+destination="model/yolov8s.pt"
+
+if [ ! -d "model" ]; then
+    mkdir -p "model"
+    echo "Dossier 'model' créé."
+fi
+
+if [ ! -f "$destination" ]; then
+    curl -L -o "$destination" "$file_url"
+
+    if [ $? -eq 0 ]; then
+        echo "Téléchargement réussi. Le fichier a été sauvegardé dans $destination."
+    else
+        echo "Erreur lors du téléchargement."
+    fi
+else
+    echo "Le fichier '$destination' existe déjà. Aucun téléchargement nécessaire."
+fi

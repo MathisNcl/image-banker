@@ -1,8 +1,21 @@
+![Version](https://img.shields.io/badge/python-3.11-brightgreen)
+[![Coverage Status](https://coveralls.io/repos/github/MathisNcl/image-banker/badge.svg?branch=master)](https://coveralls.io/github/MathisNcl/image-banker?branch=master)
+![Interrogate Status](assets/interrogate_badge.png)
+
 # ImageBanker: Object Collector & Saver
 
-ImageBanker: Object Collector & Saver - upload, select and collect your object to create a bank of image
+ImageBanker is a very simple web app for retrieving an object without background.
+The main advantage is the ability to detect objects in the photo, so you do not need to take a standardized photo to crop an object - just select it from an old image, for example.
+
+The implementation is not scratch-built: YoloV8 and rembg are used for detection and cropping.
+
+## How do I use it?
+
+Pretty straightforward! Go to this URL, take a photo, choose the object you want to crop, then download the image if you are happy with the crop.
 
 ## Special thanks
+
+Thanks to Louis Guichard and his nice [Pictify](https://github.com/louisguichard/pictify/tree/main) for the inspiration.
 
 ```bibtex
 @software{yolov8_ultralytics,
@@ -15,3 +28,7 @@ ImageBanker: Object Collector & Saver - upload, select and collect your object t
   license = {AGPL-3.0}
 }
 ```
+
+## ⚗️ Future features
+
+- [ ] Add parameters to remove background

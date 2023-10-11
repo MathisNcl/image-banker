@@ -1,3 +1,4 @@
+"""Contains the settings of the app"""
 import sys
 from pathlib import Path
 from typing import Optional, cast
@@ -10,6 +11,8 @@ BASE_DIR: Path = PACKAGE_DIR.parent.parent if PACKAGE_DIR.parent.name == "src" e
 
 
 class Settings(BaseSettings):
+    """Setting class"""
+
     MODEL_NAME: str = "yolov8s.pt"
     MODEL_FOLDER: Path = BASE_DIR / "model"
     MODEL_PATH: Optional[str] = None
@@ -18,6 +21,7 @@ class Settings(BaseSettings):
 
     @field_validator("MODEL_PATH", mode="after")
     def get_model_path(cls, v: Optional[str], info: ValidationInfo) -> str:
+        """Construct the path model"""
         return v or f"{info.data.get('MODEL_FOLDER')}/{info.data.get('MODEL_NAME')}"
 
-    model_config = ConfigDict(env_file=BASE_DIR / ".env", extra="ignore")
+    model_config = ConfigDict(env_file=BASE_DIR / ".env", extra="ignore")  # type:ignore

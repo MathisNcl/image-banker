@@ -1,3 +1,4 @@
+"""High level init"""
 import logging
 
 from image_banker.settings import Settings

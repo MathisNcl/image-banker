@@ -4,6 +4,7 @@ from typing import Any, Optional
 
 import streamlit as st
 from PIL import Image, ImageOps
+from streamlit.runtime.uploaded_file_manager import UploadedFile
 from ultralytics.engine.results import Results
 
 from image_banker.image_client import ImageClient
@@ -50,7 +51,7 @@ def select_and_show(bboxes: dict[str, Any], prediction: Results) -> None:
         bboxes (dict[str, Any]): Bbox of all objects
         prediction (Results): Yolo model prediction
     """
-    option = st.selectbox(
+    option: Optional[str] = st.selectbox(
         "Which object do you want to consider?",
         list(bboxes.keys()),
         index=None,
@@ -72,20 +73,19 @@ def select_and_show(bboxes: dict[str, Any], prediction: Results) -> None:
         if bbox_selected is not None:
             cropped_img: Image.Image = client.extract_obj_bg(prediction=prediction, bbox_object=bbox_selected)
             col2.image(cropped_img)
-            buf = BytesIO()
+            buf: BytesIO = BytesIO()
             cropped_img.save(buf, format="PNG")
-            byte_im = buf.getvalue()
             st.download_button(
-                label="Download cropped image", data=byte_im, file_name=f"extracted_{option}.png", mime="image/png"
+                label="Download cropped image",
+                data=buf.getvalue(),
+                file_name=f"extracted_{option}.png",
+                mime="image/png",
             )
 
 
-uploaded_img = st.file_uploader("Take a photo of desired object", type=["png", "jpg", "jpeg"])
+uploaded_img: UploadedFile | None = st.file_uploader("Take a photo of desired object", type=["png", "jpg", "jpeg"])
 
 if uploaded_img:
-    image = Image.open(uploaded_img)
-    # Show image
-    image = ImageOps.exif_transpose(image)
-    st.image(image, width=300, caption="Nice photo")
+    image: Image.Image = ImageOps.exif_transpose(Image.open(uploaded_img))
     bboxes, prediction = get_objects(image)
     select_and_show(bboxes, prediction)

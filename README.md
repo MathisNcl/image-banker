@@ -6,6 +6,8 @@
 
 # ImageBanker: Object Collector & Saver
 
+<img src="assets/logo.png" alt="Logo generated with Dall-E" width="200"/>
+
 ImageBanker is a very simple web app for retrieving an object without background.
 The main advantage is the ability to detect objects in the photo, so you do not need to take a standardized photo to crop an object - just select it from an old image, for example.
 

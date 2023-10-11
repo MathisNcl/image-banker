@@ -7,7 +7,7 @@ on:
   pull_request:
   workflow_dispatch:
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -28,9 +28,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pip install -e .[all]
       - name: Lint mypy
-        run: |
-            mypy --install-types
-            mypy src/ --ignore-missing-imports
+        run: mypy src/ --ignore-missing-imports
       - name: Lint flake8
         run: flake8 src/ --max-line-length 120 --ignore=E203
       - name: Lint isort

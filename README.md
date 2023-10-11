@@ -1,6 +1,8 @@
 ![Version](https://img.shields.io/badge/python-3.11-brightgreen)
 [![Coverage Status](https://coveralls.io/repos/github/MathisNcl/image-banker/badge.svg?branch=master)](https://coveralls.io/github/MathisNcl/image-banker?branch=master)
-![Interrogate Status](assets/interrogate_badge.png)
+![Interrogate Status](assets/interrogate_badge.svg)
+[![Test](https://github.com/MathisNcl/image-banker/actions/workflows/test.yaml/badge.svg)](https://github.com/MathisNcl/image-banker/actions/workflows/test.yaml)
+[![Lint](https://github.com/MathisNcl/image-banker/actions/workflows/lint.yaml/badge.svg)](https://github.com/MathisNcl/image-banker/actions/workflows/lint.yaml)
 
 # ImageBanker: Object Collector & Saver
 

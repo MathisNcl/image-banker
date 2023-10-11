@@ -47,7 +47,6 @@ repos:
     rev: 1.5.0
     hooks:
       - id: interrogate
-        args: [--fail-under=90, --generate-badge, assets/, --badge-format, png, --badge-style=flat]
+        args: [--fail-under=90, --generate-badge, assets/, --badge-format, svg, --badge-style=flat]
         exclude: tests
-        additional_dependencies: ["interrogate[png]"]
         

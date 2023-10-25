@@ -12,7 +12,7 @@ deps: # Install deps
 pre: # Run pre-commit hooks on all files and clear output jupyter
 	jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace development/*.ipynb && pre-commit run --all-files
 cov: # Compute coverage
-	pytest --cov=src --cov-report term-missing --headless
+	pytest --cov=src --cov-report term-missing --browser=chrome --headless
 app: # Launch app
 	streamlit run src/image_banker/app.py
 

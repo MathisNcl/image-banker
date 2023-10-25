@@ -13,8 +13,8 @@ st.set_page_config(page_title="ImageBanker", page_icon="📸")
 
 col1, col2 = st.columns(2)
 col1.image("assets/logo.png", width=300)
-col2.write(
-    "## ImageBanker: Object Collector & Saver - *Upload, select and collect your object to create a bank of images*"
+col2.title(
+    "ImageBanker: Object Collector & Saver - *Upload, select and collect your object to create a bank of images*"
 )
 
 client: ImageClient = ImageClient()

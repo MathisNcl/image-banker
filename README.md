@@ -15,7 +15,42 @@ The implementation is not scratch-built: YoloV8 and rembg are used for detection
 
 ## How do I use it?
 
-Pretty straightforward! Go to this URL, take a photo, choose the object you want to crop, then download the image if you are happy with the crop.
+Pretty straightforward! Go to the webapp, take a photo, choose the object you want to crop, then download the image if you are happy with the crop. Here is gif example of a use:
+
+![GIF example](assets/example.gif)
+
+## Installation
+
+For now, the webapp is not hosted online, you will have to install it by yourself on your laptop.
+
+- Create a virtualenv and activate it, I use conda:
+
+```shell
+conda create -n my_env python=3.11 -y
+
+conda activate my_env
+```
+
+- Git clone the repo and install it:
+
+```shell
+git clone https://github.com/MathisNcl/image-banker.git
+cd image-banker
+pip install -e .
+```
+
+- run app:
+
+```shell
+make app
+# Wait for app to start, the first time is slower
+```
+
+Now your webapp is avaliable in your laptop at: <http://localhost:8501>.
+
+For another device with same wifi at: <http://192.168.1.42:8501>!
+
+Enjoy!🎉🎉
 
 ## Special thanks
 
@@ -36,3 +71,4 @@ Thanks to Louis Guichard and his nice [Pictify](https://github.com/louisguichard
 ## ⚗️ Future features
 
 - [ ] Add parameters to remove background
+- [ ] Personnal implementation of removing background to remove huge memory dependancies
